@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuctionService", "src\AuctionService\AuctionService.csproj", "{890247F3-CC17-4C1D-859A-B7BF5B0BBF30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchService", "src\SearchService\SearchService.csproj", "{51BBC13A-1473-4CB6-B9E2-71C0E69AA8BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchService", "src\SearchService\SearchService.csproj", "{51BBC13A-1473-4CB6-B9E2-71C0E69AA8BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8559B2C2-5A9A-4D82-A2FC-7985CAFD5E38}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "search", "search", "{4DBC6C74-B279-433A-BED9-D3F7116552B1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{EE774C37-7E65-461C-B9F5-CCEF328CD894}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "contracts", "contracts", "{FE22EFA1-B876-402C-9FE4-FFE026CF75DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "src\Contracts\Contracts.csproj", "{3F0C6B95-D35E-4D00-8866-2E21B8A93E01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,10 @@ Global
 		{51BBC13A-1473-4CB6-B9E2-71C0E69AA8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51BBC13A-1473-4CB6-B9E2-71C0E69AA8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51BBC13A-1473-4CB6-B9E2-71C0E69AA8BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F0C6B95-D35E-4D00-8866-2E21B8A93E01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F0C6B95-D35E-4D00-8866-2E21B8A93E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F0C6B95-D35E-4D00-8866-2E21B8A93E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F0C6B95-D35E-4D00-8866-2E21B8A93E01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +46,8 @@ Global
 		{51BBC13A-1473-4CB6-B9E2-71C0E69AA8BC} = {4DBC6C74-B279-433A-BED9-D3F7116552B1}
 		{7B0AC6D5-23D1-4135-B4DC-7DFB57CF9842} = {8559B2C2-5A9A-4D82-A2FC-7985CAFD5E38}
 		{4DBC6C74-B279-433A-BED9-D3F7116552B1} = {8559B2C2-5A9A-4D82-A2FC-7985CAFD5E38}
+		{FE22EFA1-B876-402C-9FE4-FFE026CF75DB} = {8559B2C2-5A9A-4D82-A2FC-7985CAFD5E38}
+		{3F0C6B95-D35E-4D00-8866-2E21B8A93E01} = {FE22EFA1-B876-402C-9FE4-FFE026CF75DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2D877CC3-5098-4A6C-A252-349CA34B56A3}

@@ -1,6 +1,7 @@
 ﻿using AuctionService.DTOs;
 using AuctionService.Entities;
 using AutoMapper;
+using Contracts;
 
 namespace AuctionService.Helpers
 {
@@ -19,6 +20,8 @@ namespace AuctionService.Helpers
 
             CreateMap<Item, CreateAuctionDto>()
                 .ReverseMap();
+
+            CreateMap<AuctionDto, AuctionCreated>();
         }
     }
 }

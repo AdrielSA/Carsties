@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Reflection;
+using MassTransit;
 
 namespace AuctionService
 {
@@ -28,6 +28,20 @@ namespace AuctionService
                 opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            builder.Services.AddMassTransit(x =>
+            {
+                x.AddEntityFrameworkOutbox<AuctionDbContext>(opt =>
+                {
+                    opt.QueryDelay = TimeSpan.FromSeconds(10);
+                    opt.UsePostgres();
+                    opt.UseBusOutbox();
+                });
+                x.UsingRabbitMq((context, cfg) =>
+                {
+                    cfg.ConfigureEndpoints(context);
+                });
+            });
 
             var app = builder.Build();
 
