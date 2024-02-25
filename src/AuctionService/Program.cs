@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using MassTransit;
+using AuctionService.Consumers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace AuctionService
 {
@@ -37,15 +39,27 @@ namespace AuctionService
                     opt.UsePostgres();
                     opt.UseBusOutbox();
                 });
+                x.AddConsumersFromNamespaceContaining<AuctionCreatedFaultConsumer>();
+                x.SetEndpointNameFormatter(new KebabCaseEndpointNameFormatter("auction", false));
                 x.UsingRabbitMq((context, cfg) =>
                 {
                     cfg.ConfigureEndpoints(context);
                 });
             });
 
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(opt =>
+                {
+                    opt.Authority = builder.Configuration["IdentityServiceUrl"];
+                    opt.RequireHttpsMetadata = false;
+                    opt.TokenValidationParameters.ValidateAudience = false;
+                    opt.TokenValidationParameters.NameClaimType = "userName";
+                });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllers();
